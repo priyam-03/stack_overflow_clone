@@ -27,7 +27,7 @@ const authSlice = createSlice({
   reducers: {
     setCredentials: (state, { payload }) => {
       state.userInfo = payload;
-      localStorage.setItem("userInfo", JSON.stringify(payload));
+      // localStorage.setItem("userInfo", JSON.stringify(payload));
     },
     updateProfileReset: (state) => {
       state.loading = false;
@@ -51,7 +51,7 @@ const authSlice = createSlice({
       state.loading = false;
       state.userInfo = payload;
       state.isAuthenticated = true;
-      localStorage.setItem("userInfo", JSON.stringify(payload));
+      // localStorage.setItem("userInfo", JSON.stringify(payload));
     },
     [userLogin.rejected]: (state, { payload }) => {
       state.loading = false;
@@ -68,7 +68,7 @@ const authSlice = createSlice({
       state.loading = false;
       state.userInfo = payload;
       state.isAuthenticated = true;
-      localStorage.setItem("userInfo", payload);
+      // localStorage.setItem("userInfo", payload);
       // registration successful
     },
     [registerUser.rejected]: (state, { payload }) => {
@@ -102,6 +102,7 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = null;
       state.userInfo = payload;
+      state.isAuthenticated = true;
     },
     [profile.rejected]: (state, { payload }) => {
       state.loading = false;
